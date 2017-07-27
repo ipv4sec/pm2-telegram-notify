@@ -1,0 +1,22 @@
+{
+  "name": "pm2-telegram-notify",
+  "version": "1.0.0",
+  "description": "PM2 telegram notify",
+  "main": "dist/app.js",
+  "dependencies": {
+    "pmx": "^1.2.0"
+  },
+  "config": {
+    "conf_var_1": true,
+    "conf_var_2": "myvalue"
+  },
+  "apps": [
+    {
+      "merge_logs": true,
+      "max_memory_restart": "200M",
+      "script": "app.js"
+    }
+  ],
+  "author": "ipv4sec",
+  "license": "MIT"
+}
