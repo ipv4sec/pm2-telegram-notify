@@ -3,20 +3,47 @@
   "version": "1.0.0",
   "description": "PM2 telegram notify",
   "main": "dist/app.js",
-  "dependencies": {
-    "pmx": "^1.2.0"
-  },
   "config": {
-    "conf_var_1": true,
-    "conf_var_2": "myvalue"
+    "chatId": 1234,
+    "token": "token"
   },
   "apps": [
     {
       "merge_logs": true,
       "max_memory_restart": "200M",
-      "script": "app.js"
+      "script": "dist/app.js"
     }
   ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha ./dist/ --recursive",
+    "start": "node dist/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipv4sec/pm2-telegram-notify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ipv4sec/pm2-telegram-notify/issues"
+  },
+  "homepage": "https://github.com/ipv4sec/pm2-telegram-notify#readme",
   "author": "ipv4sec",
-  "license": "MIT"
+  "license": "ISC",
+  "dependencies": {
+    "@types/node-telegram-bot-api": "^0.27.0",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-tslint": "^8.1.1",
+    "gulp-typescript": "^3.1.7",
+    "merge2": "^1.1.0",
+    "node-telegram-bot-api": "^0.27.1",
+    "pm2": "^2.6.1",
+    "pmx": "^1.2.0",
+    "tslint": "^5.4.3",
+    "tslint-config-standard": "^6.0.1",
+    "typescript": "^2.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.17"
+  }
 }
