@@ -46,16 +46,16 @@ pm2.launchBus(function (err: Error, bus: any) {
     }
     let resuly: any =
       `
-      当前进程: ${ e.process.pm_id}
-      当前状态: ${ e.process.status}
-      主机名称: ${ e.process.HOSTNAME}
-      当前用户: ${ e.process.USER}
-      当前路径: ${ e.process.PWD}
-      执行路径: ${ e.process.pm_cwd}
-      文件路径: ${ e.process.pm_exec_path}
-      环境参数: ${ e.process.node_args}
-      应用名称: ${ e.process.name}
-      应用状态: watch ${ e.process.watch}
+      当前进程: ${ e.process.pm_id} <br />
+      当前状态: ${ e.process.status} <br />
+      主机名称: ${ e.process.HOSTNAME} <br />
+      当前用户: ${ e.process.USER} <br />
+      当前路径: ${ e.process.PWD} <br />
+      执行路径: ${ e.process.pm_cwd} <br />
+      文件路径: ${ e.process.pm_exec_path} <br />
+      环境参数: ${ e.process.node_args} <br />
+      应用名称: ${ e.process.name} <br />
+      应用状态: watch ${ e.process.watch} <br />
       当前事件: ${ e.event}
       `
     bot.sendMessage(conf.chatId, JSON.stringify(resuly))
