@@ -44,9 +44,27 @@ pm2.launchBus(function (err: Error, bus: any) {
     if (e.manually === true) {
       return
     }
-    bot.sendMessage(conf.chatId, JSON.stringify(e))
+    let resuly: any =
+      `
+      pm_id: ${ e.process.pm_id}\n
+      status: ${ e.process.status}\n
+      HOSTNAME: ${ e.process.HOSTNAME}\n
+      USER: ${ e.process.USER}\n
+      PWD: ${ e.process.PWD}\n
+      pm_cwd: ${ e.process.pm_cwd}\n
+      pm_exec_path: ${ e.process.pm_exec_path}\n
+      node_args: ${ e.process.node_args}\n
+      name: ${ e.process.name}\n
+      watch: ${ e.process.watch}\n
+      event: ${ e.event}\n
+      `
+    bot.sendMessage(conf.chatId, JSON.stringify(resuly))
   })
   bus.on('pm2:kill', function () {
     console.error('PM2 is beeing killed')
   })
+})
+bot.on('message', (msg: any) => {
+  const chatId = msg.chat.id
+  bot.sendMessage(chatId,'You chatId is ' + chatId )
 })
