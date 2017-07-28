@@ -45,20 +45,19 @@ pm2.launchBus(function (err: Error, bus: any) {
       return
     }
     let resuly: string =
-      `PM2:
-      <br />当前进程: ${ e.process.pm_id}
-      <br />当前状态: ${ e.process.status}
-      <br />主机名称: ${ e.process.HOSTNAME}
-      <br />当前用户: ${ e.process.USER}
-      <br />当前路径: ${ e.process.PWD}
-      <br />执行路径: ${ e.process.pm_cwd}
-      <br />文件路径: ${ e.process.pm_exec_path}
-      <br />环境参数: ${ e.process.node_args}
-      <br />应用名称: ${ e.process.name}
-      <br />应用状态: watch ${ e.process.watch}
-      <br />当前事件: ${ e.event}
+      `PM2:\n当前进程: ${ e.process.pm_id}
+           \n当前状态: ${ e.process.status}
+           \n主机名称: ${ e.process.HOSTNAME}
+           \n当前用户: ${ e.process.USER}
+           \n当前路径: ${ e.process.PWD}
+           \n执行路径: ${ e.process.pm_cwd}
+           \n文件路径: ${ e.process.pm_exec_path}
+           \n环境参数: ${ e.process.node_args}
+           \n应用名称: ${ e.process.name}
+           \n应用状态: watch ${ e.process.watch}
+           \n当前事件: ${ e.event}
       `
-    bot.sendMessage(conf.chatId, resuly, { parse_mode: 'HTML' })
+    bot.sendMessage(conf.chatId, resuly, { parse_mode: 'Markdown' })
   })
   bus.on('pm2:kill', function () {
     console.error('PM2 is beeing killed')
