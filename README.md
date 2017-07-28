@@ -4,9 +4,14 @@
 ```bash
 npm install pm2 -g
 pm2 install ipv4sec/pm2-telegram-notify
-pm2 set pm2-telegram-notify:chatId {1234}
 pm2 set pm2-telegram-notify:token {token}
+pm2 set pm2-telegram-notify:chatId {1234}
 ```
+`token`是在创建`telegramBot`时的`token`
+在执行完
+`pm2 set pm2-telegram-notify:token {token}`
+时,向你的Bot发送任意消息会得到你的chatId,然后
+`pm2 set pm2-telegram-notify:chatId {1234}`
 
 ![示例](./res/1.png)
 
