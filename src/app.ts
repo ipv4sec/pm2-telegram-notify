@@ -43,22 +43,15 @@ pm2.launchBus(function (err: Error, bus: any) {
   bus.on('process:event', function (e: any) {
     if (e.manually === true) {
       return
+    }else{
+      if( e.event === 'restart overlimit'){
+        let resuly: string =
+            `${ e.process.name} [ pid:${ e.process.pm_id}] @ ${ e.process.HOSTNAME}:${ e.process.status} in ${ e.process.pm_exec_path}`
+        bot.sendMessage(conf.chatId, resuly, { parse_mode: 'Markdown' })
+      }else{
+        return
+      }
     }
-    let resuly: string =
-      `PM2:
-      当前进程: ${ e.process.pm_id}
-      当前状态: ${ e.process.status}
-      主机名称: ${ e.process.HOSTNAME}
-      当前用户: ${ e.process.USER}
-      当前路径: ${ e.process.PWD}
-      执行路径: ${ e.process.pm_cwd}
-      文件路径: ${ e.process.pm_exec_path}
-      环境参数: ${ e.process.node_args}
-      应用名称: ${ e.process.name}
-      应用状态: watch ${ e.process.watch}
-      当前事件: ${ e.event}
-      `
-    bot.sendMessage(conf.chatId, resuly, { parse_mode: 'Markdown' })
   })
   bus.on('pm2:kill', function () {
     console.error('PM2 is beeing killed')
